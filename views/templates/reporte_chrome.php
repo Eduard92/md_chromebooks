@@ -8,7 +8,8 @@
             </tr>     
         </table>
     </page_header>
-    <h3 align="center">{{title}}</h3>
+    <h4 align="center">{{title}}</h4>
+    <p align="right">{{total}}</p>
     <br />
     
     <table >
@@ -17,10 +18,19 @@
         </thead>
                             {{table}}
     </table>
+    <page_footer>
+        <table>
+        <tr>
+            <td width="200"></td> 
+           
+            <td width="300" style="border-top: #7A7A7A 1px solid;">
+                 <p style="text-align: center; font-size: 16px;"><strong>Atentamente</strong></p>
+            </td>
+            <td width="200"></td>
+             
+        </tr>
+    </table>
+    </page_footer>
  
- 
-
-
-
 
  </page>

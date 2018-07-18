@@ -573,6 +573,7 @@ class Admin extends Admin_Controller {
                                 
                                 ->join('emails','emails.email=chromebook_asignacion.email')
                                 ->where('removido IS NULL',null)->where('org_path',$org)->get_all();
+                    $count = 0;
 
                     if(empty($chromebooks)==false){
 
@@ -591,6 +592,7 @@ class Admin extends Admin_Controller {
                   
                     foreach ($chromebooks as $chromebook)
                     {        
+                        $count++;
 
                         $table .= '<tr>';  
                                     
@@ -603,6 +605,9 @@ class Admin extends Admin_Controller {
                     }
 
                     $table .= '</tbody>';
+
+                    $total= 'Total Asignadas: '.$count;
+
                 }
                 else{
                     $table .= '<tr>';  
@@ -642,7 +647,8 @@ class Admin extends Admin_Controller {
             ->build('templates/'.$doc,
               array('table'=>$table,
                     'table_header'=>$table_header,
-                    'title'=>$title),true);
+                    'title'=>$title,
+                    'total'=>$total,),true);
            
         $html2pdf->writeHTML($output);
         $html2pdf->Output($doc.'_'.now().'.pdf');
