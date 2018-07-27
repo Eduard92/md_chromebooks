@@ -162,8 +162,6 @@ class Admin_Asignaciones extends Admin_Controller {
             $org = $this->org_m->where_in('id',$orgs_perm)->get_all();          
             $orgs_path = $this->org_m->where_in('id',$orgs_perm)->dropdown('id','org_path');
 
-            print_r($org);
-
             
          }
          else
