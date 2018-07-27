@@ -8,7 +8,7 @@
  * @subpackage 	Sliders
  * @copyright 	MIT
  */
-class Chromebook_asignacion_m extends MY_Model {
+class Asignacion_m extends MY_Model {
 
 
 	public function __construct()
@@ -21,12 +21,11 @@ class Chromebook_asignacion_m extends MY_Model {
     {
 
         $data = array(
-                
             'id_chromebook'      => $id,
             'asignado'           => date('Y-m-d H:i:s', now()),
-            'email'              => $input['email'],
+            'id_email'              => $input['alumno'],
             'obs_asig'           => $input['observaciones']?$input['observaciones']:NULL,
-            'responsable'		 => $input['responsable']
+            'responsable'        => $input['responsable']
             
         );
         
