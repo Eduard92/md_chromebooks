@@ -298,7 +298,9 @@
         {
             $scope.form = {
                 
-                id_chromebook : chrome.id
+                id_chromebook : chrome.id,
+                org:{org_path:chrome.org_path},
+
             };
         }
         
@@ -395,25 +397,45 @@
         $scope.valid_form = function () {
             return $scope.frm.$valid;
         }
+
+
+        $scope.change = function()
+        {
+          var org_path = $scope.form.org.org_path;
+          var id_chromebook = $scope.form.id_chromebook
+
+          $http.post(SITE_URL+'admin/chromebooks/asignaciones/getOrgChrome',{org_path:org_path,id_chromebook:id_chromebook}).then(function(response){
+                  
+                  var result = response.data;
+
+                   $scope.message = result.message;
+
+                   if (result.status == false){
+                     $scope.form.org_distinct = true;
+                   }else
+                   {
+                     $scope.form.org_distinct = false;
+                   }
+                                                 
+            });
+         
+        }
     }
 
     function InputModalReport($scope,$http,$uibModalInstance,$window)
     {
           $scope.orgs = orgs;
 
+          $scope.org = $scope.orgs[0];
+
          $scope.cancel = function(){
              $uibModalInstance.dismiss("cancel");
         }
-
-
-        $scope.valid_form = function (){
-           return $scope.report.$valid;
-        } 
-                
+               
         $scope.save = function(){
 
-            var estatus = $scope.report.estatus?$scope.report.estatus:'';
-            var org_path = $scope.report.org?$scope.report.org.org_path:'';
+            var estatus = $scope.estatus?$scope.estatus:'';
+            var org_path = $scope.org?$scope.org.org_path:'';
             
             if(org_path == null)
             {

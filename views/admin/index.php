@@ -156,7 +156,7 @@
     <div class="modal-header" >
         <h3>Generar Reporte</h3>
     </div>
-     <?php  echo form_open('','name="report" id="report"');?>
+     <?php  echo form_open();?>
     <div class="modal-body">
 
         <div ng-bind-html="message" ng-if="message" class="alert alert-danger"></div>
@@ -164,26 +164,24 @@
                            <div class="form-group">
                              <label>Estatus</label>
                              <div>
-                             <label class="radio-inline"><input type="radio"  ng-model="report.estatus" value="0"/> Disponibles</label>
-                             <label class="radio-inline"><input type="radio"  ng-model="report.estatus" value="1"/> Asignados</label>
+                             <label class="radio-inline"><input type="radio"  ng-model="estatus" value="0"/> Disponibles</label>
+                             <label class="radio-inline"><input type="radio"  ng-model="estatus" value="1"/> Asignados</label>
 
 
                              
                              </div>
                          </div>
-                      <div class="form-group" ng-if="report.estatus == 0 || report.estatus == 1 ">
+                      <div class="form-group" ng-if="estatus == 0 || estatus == 1 ">
                             <label>Organización</label>
-                            <select class="form-control" name="org" ng-model="report.org" ng-options="org.name for org in orgs track by org.org_path" required>
-                               <option value="" > [ Elegir ] </option>
+                            <select class="form-control" name="org" ng-model="org" " ng-options="org.name for org in orgs track by org.org_path" required>
                             </select>
                       </div>                 
-                           
     </div>
     <div class="modal-footer">
        
                         
         <button type="button" ui-wave class="btn btn-flat" ng-click="cancel()">Cancelar</button>
-        <button type="button" ui-wave class="btn btn-flat btn-primary" ng-click="save()" ng-disabled="!report.estatus || !report.org ">Aceptar</button>
+        <button type="button" ui-wave class="btn btn-flat btn-primary" ng-click="save()" ng-disabled="!estatus || !org ">Aceptar</button>
     </div>    
      <?php echo form_close(); ?>                       
 </script>
