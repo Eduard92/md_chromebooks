@@ -53,7 +53,7 @@
                      </div>   
                       <div class="form-group" ng-if="method=='create'" >
                             <label>Organización</label>
-                            <select class="form-control" name="org" ng-model="form.org" ng-blur="change()" ng-options="org.name for org in orgs track by org.org_path" required>
+                            <select class="form-control" name="org" ng-blur="change()" ng-model="form.org"  ng-options="org.name for org in orgs track by org.org_path" required>
                                 <option value=""> [ Elegir ] </option>
                             </select>
                      </div> 
