@@ -46,14 +46,14 @@
           <?php  echo form_open('','name="frm" id="frm"');?>
 
     <div class="modal-body">
-                    <div ng-bind-html="message" ng-if="message" class="alert alert-danger" "></div>
+                    <div ng-bind-html="message" ng-if="message" class="alert alert-danger" ></div>
                     <div class="form-group">
                             <label>No. serial</label>
                             <input type="text" class="form-control" ng-model="form.id" disabled/>
                      </div>   
                       <div class="form-group" ng-if="method=='create'" >
                             <label>Organización</label>
-                            <select class="form-control" name="org" ng-model="form.org"  ng-options="org.name for org in orgs track by org.org_path" required>
+                            <select class="form-control" name="org" ng-blur="change()" ng-model="form.org"  ng-options="org.name for org in orgs track by org.org_path" required>
                                 <option value=""> [ Elegir ] </option>
                             </select>
                      </div> 
@@ -79,7 +79,7 @@
     </div>
      <?php  echo form_open('','name="frm_add" id="frm_add"');?>
     <div class="modal-body">
-        <div ng-bind-html="message" ng-if="message" class="alert alert-danger" "></div>                    
+        <div ng-bind-html="message" ng-if="message" class="alert alert-danger"></div>                    
                     <div class="form-group">
                             <label>No. serial</label>
                             <input type="text" class="form-control" ng-model="frm_add.serie"/>
@@ -102,7 +102,7 @@
        
                         
         <button type="button" ui-wave class="btn btn-flat" ng-click="cancel()">Cancelar</button>
-        <button type="button" ui-wave class="btn btn-flat btn-primary" ng-click="save()" ">Aceptar</button>
+        <button type="button" ui-wave class="btn btn-flat btn-primary" ng-click="save()">Aceptar</button>
     </div>    
      <?php echo form_close(); ?>                       
 </script>
