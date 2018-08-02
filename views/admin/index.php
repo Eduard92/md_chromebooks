@@ -85,7 +85,7 @@
                      </div>   
                       <div class="form-group">
                             <label>Organización</label>
-                            <select class="form-control" name="org" ng-readonly="form.id" ng-model="form.org" ng-options="org.name for org in orgs track by org.org_path" required>
+                            <select class="form-control" name="org" ng-readonly="form.id" ng-model="form.org" ng-options="org.name for org in orgs track by org.org_path"  ng-change="change()" required>
                                 <option value=""> [ Elegir ] </option>
                             </select>
                             <div ng-messages="frm.org.$error"  role="alert" ng-if="frm.org.$dirty">
