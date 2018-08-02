@@ -426,16 +426,15 @@
     {
           $scope.orgs = orgs;
 
-          $scope.org = $scope.orgs[0];
-
          $scope.cancel = function(){
              $uibModalInstance.dismiss("cancel");
         }
-               
+
+                
         $scope.save = function(){
 
-            var estatus = $scope.estatus?$scope.estatus:'';
-            var org_path = $scope.org?$scope.org.org_path:'';
+            var estatus = $scope.report.estatus?$scope.report.estatus:'';
+            var org_path = $scope.report.org?$scope.report.org.org_path:'';
             
             if(org_path == null)
             {
