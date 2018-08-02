@@ -171,7 +171,7 @@
                       <div class="form-group" ng-if="report.estatus == 0 || report.estatus == 1 ">
                             <label>Organización</label>
 
-                            <select class="form-control" ng-init="report.org = orgs[0]" name="org" ng-model="report.org" ng-options="org.name for org in orgs track by org.org_path" required>
+                            <select class="form-control" ng-init="report.org = orgs[0]" ng-model="report.org" ng-options="org.name for org in orgs track by org.org_path" required>
                                <option value="" > [ Elegir ] </option>
                             </select>
                       </div>                 
